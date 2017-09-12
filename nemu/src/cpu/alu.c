@@ -102,6 +102,14 @@ uint32_t alu_sbb(uint32_t src, uint32_t dest)
 	uint32_t sum=alu_sub(src,destt);
 	if(destt>dest)
 		cpu.eflags.CF=true;
+//	iprintf("%x %x\n",src,dest);
+	if((dest&0x80000000)!=(src&0x80000000))
+	{
+		if((sum&0x80000000)!=(dest&0x80000000))
+			cpu.eflags.OF=true;
+	}
+	else
+		cpu.eflags.OF=false;
 	return sum;
 }
 
