@@ -9,7 +9,7 @@ FLOAT p_zero, n_zero, p_inf, n_inf, p_nan, n_nan;
 // the last three bits of the significand are reserved for the GRS bits
 inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 {
-
+//	printf("%x %x %llx\n",sign,exp,sig_grs);
 	// normalization
 	bool overflow = false; // true if the result is INFINITY or 0 during normalize
 	bool Sticky=false;
@@ -28,7 +28,6 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 //			printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
 //			assert(0);
 		}  
-
 		if(exp >= 0xff)
  		{
 			exp=0xff;
@@ -72,6 +71,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 //			printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
 //			assert(0);
 		}
+//		printf("left: %x %llx\n",exp,sig_grs);
 		if(exp == 0)
 		{
 			if(sig_grs&0x1)
@@ -125,8 +125,9 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 	f.sign = sign;
 	f.exponent = (uint32_t) (exp & 0xff);
 	f.fraction = sig_grs; // here only the lowest 23 bits are kept
+//	printf("Result: %x %x %x\n",f.sign,f.exponent,f.fraction);
 	return f.val;
-}
+ }
 
 CORNER_CASE_RULE corner_add[] = {
 	{P_ZERO_F, P_ZERO_F, P_ZERO_F},
@@ -143,7 +144,8 @@ CORNER_CASE_RULE corner_add[] = {
 };
 //k: abnormal add table
 // a + b
-uint32_t internal_float_add(uint32_t b, uint32_t a) {
+uint32_t internal_float_add(uint32_t b, uint32_t a)
+{
 
 	// corner cases
 	int i = 0;
@@ -192,7 +194,7 @@ uint32_t internal_float_add(uint32_t b, uint32_t a) {
 			sig_a = sig_a >> 1;
 			sig_a |= sticky;
 			shift --;
-	}
+ 	}
 
 	// fraction add
 	if(fa.sign) { sig_a *= -1; }
@@ -215,7 +217,7 @@ uint32_t internal_float_add(uint32_t b, uint32_t a) {
 		printf("%x %x %x %x %f\n",sig_a,sig_b,rsl,*pt,tmp);
 	}
 	return rsl;
-}
+} 
 
 CORNER_CASE_RULE corner_sub[] = {
 	{P_ZERO_F, P_ZERO_F, P_ZERO_F},
@@ -229,7 +231,8 @@ CORNER_CASE_RULE corner_sub[] = {
 };
 
 // a - b
-uint32_t internal_float_sub(uint32_t b, uint32_t a) {
+uint32_t internal_float_sub(uint32_t b, uint32_t a)
+{
 	// change the sign of b
 	int i = 0;
 	for(; i < sizeof(corner_sub) / sizeof(CORNER_CASE_RULE); i++) {
@@ -283,16 +286,49 @@ uint32_t internal_float_mul(uint32_t b, uint32_t a) {
 	if(fa.exponent != 0) sig_a |= 0x800000; // the hidden 1
 	sig_b = fb.fraction;
 	if(fb.exponent != 0) sig_b |= 0x800000; // the hidden 1
-
-	if(fa.exponent == 0) fa.exponent ++;
-	if(fb.exponent == 0) fb.exponent ++;
-
+	int left_a=0,left_b=0;
+	if(fa.exponent == 0) fa.exponent+=++left_a;
+	if(fb.exponent == 0) fb.exponent+=++left_b;
+	
 	sig_res = sig_a * sig_b; // 24b * 24b 
-	uint32_t exp_res = 0;
+	uint32_t exp_res = fa.exponent+fb.exponent-127-20;
+	if(left_a)
+	{
+		int count_b=0;
+		for(long long cover=0x8000000000000000;(sig_a&cover)==0;cover=cover>>1)
+		{
+			count_b++;
+		}
+//		printf("count_b: %d\t",count_b);
+		count_b-=(32+6-1);
+		exp_res-=count_b;
+		sig_a=sig_a<<count_b;
+//		printf("%llx\t",sig_a);
+		sig_res=sig_a*sig_b;
+//		printf("count_b: %d\t",count_b);
+	}
+	if(left_b)
+	{
+		int count_b=0;
+		for(long long cover=0x8000000000000000;(sig_b&cover)==0;cover=cover>>1)
+		{
+			count_b++;
+		}
+//		printf("count_b: %d\t",count_b);
+		count_b-=(32+6-1);
+		exp_res-=count_b;
+		sig_b=sig_b<<count_b;
+//		printf("%llx\t",sig_a);
+		sig_res=sig_a*sig_b;
+//		printf("count_b: %d\t",count_b);
+	}
 
-	/* TODO: exp_res = ? leave space for GRS bits. */
-	printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
-	assert(0);
+//	 TODO: exp_res = ? leave space for GRS bits. 
+//	printf("\e[0;31mPlease implement me at fpu.c\e[0m\n");
+//	assert(0);
+//	printf("%x %x\n",f.sign,exp_res);
+//	printf("%x %llx\n",exp_res,sig_res);
+ 
 	return internal_normalize(f.sign, exp_res, sig_res);
 }
 
