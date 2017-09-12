@@ -4,19 +4,25 @@
 #include "nemu.h"
 
 // define the structure of registers
-typedef struct {
+typedef struct 
+{
 
 	// general purpose registers
-	struct {
-		struct {
-			struct {
+	union 
+	{
+		union 
+		{
+			union 
+			{
 				uint32_t _32;
 				uint16_t _16;
 				uint8_t _8[2];
 			};
 			uint32_t val;
 		} gpr[8];
-		struct { // do not change the order of the registers
+		struct 
+		{
+			// do not change the order of the registers
 			uint32_t eax, ecx, edx, ebx, esp, ebp, esi, edi;
 		};
 	};
@@ -25,8 +31,10 @@ typedef struct {
 	uint32_t eip;
 
 	// EFLAGS
-	union {
-		struct {
+	union 
+	{
+		struct 
+		{
 			uint32_t CF :1;
 			uint32_t dummy0 :1;
 			uint32_t PF :1;
