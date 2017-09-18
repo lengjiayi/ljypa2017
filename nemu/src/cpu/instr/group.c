@@ -40,8 +40,8 @@ make_instr_func(group_1_bb) {
 	
 	return len;
 }
-
-make_instr_func(group_1_bv) {
+*/
+make_instr_func(cmp) {
         uint8_t op;
         int len = 0; // opcode
         // read ModR/M for opcode and rm
@@ -51,7 +51,7 @@ make_instr_func(group_1_bv) {
 
         return len;
 }
-
+/*
 make_instr_func(group_1_vv) {
         uint8_t op;
         int len = 0; // opcode

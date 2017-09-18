@@ -78,10 +78,7 @@ instr_func group_1_v_entry[8] =
 /* 0x83 */
 instr_func group_1_bv_entry[8] =
 {cmp, inv, inv, inv, inv, inv, inv, inv};
-make_instr_func(cmp)
-{
-	;
-}
+
 /* 0xc0 */
 instr_func group_2_b_entry[8] =
 {inv, inv, inv, inv, shl_i2rm_b, shr_i2rm_b, inv, sar_i2rm_b};
