@@ -187,6 +187,7 @@ make_instr_func(cmp_i2r_v)
 	OPERAND rm,imm;
 	rm.data_size=data_size;
 	imm.data_size=8;
+	imm.type=OPR_IMM;
 	len+=modrm_rm(eip+1,&rm);
 	operand_read(&rm);
 	operand_read(&imm);
