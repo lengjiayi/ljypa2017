@@ -7,6 +7,6 @@ make_instr_func(call_Av)
 	dfun.data_size=data_size;
 	operand_read(&dfun);
 //	printf("%d\n",dfun.val);
-	cpu.eip+=dfun.val;
+	cpu.eip+=dfun.val+1;
 	return 0;
 }
