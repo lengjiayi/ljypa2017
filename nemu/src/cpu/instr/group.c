@@ -194,6 +194,6 @@ make_instr_func(cmp_i2r_v)
 	operand_read(&imm);
 //	alu_sub(r.val,rm.val);
 	printf("%d,%d\n",imm.val,rm.val);
-	return len;
+	return len+1;
 }
 //make_instr_impl_2op(cmp,i,r,v)
