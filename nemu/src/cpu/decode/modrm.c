@@ -100,10 +100,10 @@ int parse_rm_32(uint32_t eip, MODRM modrm, OPERAND * opr) {
 	int len = 1; // modr/m
 	if(verbose) clear_operand_mem_addr(opr);
 	switch(modrm.mod) {
-	case 0: len += case_mod_00(eip, modrm, opr); break;
-	case 1: len += case_mod_01(eip, modrm, opr); break;
-	case 2: len += case_mod_10(eip, modrm, opr); break;
-	case 3: len += case_mod_11(eip, modrm, opr); break;
+	case 0: len += case_mod_00(eip, modrm, opr); break;	//R[]
+	case 1: len += case_mod_01(eip, modrm, opr); break;	//disp8 R[]
+	case 2: len += case_mod_10(eip, modrm, opr); break;	//disp32 R[]
+	case 3: len += case_mod_11(eip, modrm, opr); break;	//Reg
 	}
 	return len;
 }
