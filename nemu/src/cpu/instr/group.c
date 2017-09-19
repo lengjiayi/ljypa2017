@@ -173,9 +173,9 @@ make_instr_func(group_7) {
 	return len;
 }
 */
-make_instr_func(cmp)
+make_instr_func(cmp_bv)
 {
-	int len=1;
+	int len=0;
 	OPERAND r,rm;
 	r.data_size=8;
 	rm.data_size=data_size;
