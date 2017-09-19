@@ -182,6 +182,6 @@ make_instr_func(cmp)
 	operand_read(&rm);
 	operand_read(&r);
 	alu_sub(r.val,rm.val);
-	printf("%d,%d\n",r.val,len);
+	printf("%d,%d\n",r.typr,rm.type);
 	return len;
 }
