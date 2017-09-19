@@ -181,7 +181,7 @@ static void instr_execute_2op()
 	alu_sub(opr_src.val,opr_dest.val);
 }
 */
-make_instr_func(cmp_bv)
+make_instr_func(cmp_i2r_v)
 {
 	int len=1;
 	OPERAND rm,imm;
