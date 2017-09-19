@@ -9,7 +9,7 @@
 
 make_group_impl(group_1_b);
 make_group_impl(group_1_v);
-//make_group_impl(group_1_bv);
+make_group_impl(group_1_bv);
 make_group_impl(group_2_b);
 make_group_impl(group_2_v);
 make_group_impl(group_2_1b);
@@ -40,8 +40,7 @@ make_instr_func(group_1_bb) {
 	
 	return len;
 }
-*/
-make_instr_func(cmp);
+
 make_instr_func(group_1_bv) {
         uint8_t op;
         int len = 0; // opcode
@@ -52,7 +51,7 @@ make_instr_func(group_1_bv) {
 
         return len;
 }
-/*
+
 make_instr_func(group_1_vv) {
         uint8_t op;
         int len = 0; // opcode
@@ -174,3 +173,4 @@ make_instr_func(group_7) {
 	return len;
 }
 */
+make_instr_func(cmp);

@@ -54,3 +54,4 @@ make_instr_func(group_x87_de);
 make_instr_func(group_x87_df);
 
 #endif
+make_instr_func(cmp);
