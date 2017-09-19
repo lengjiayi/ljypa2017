@@ -190,7 +190,7 @@ make_instr_func(cmp_bv)
 	operand_read(&rm);
 	operand_read(&imm);
 //	alu_sub(r.val,rm.val);
-	printf("%d,%d\n",r.type,rm.type);
+	printf("%d,%d\n",imm.val,rm.val);
 	return len;
 }
 //make_instr_impl_2op(cmp,i,r,v)
