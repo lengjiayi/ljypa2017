@@ -173,16 +173,24 @@ make_instr_func(group_7) {
 	return len;
 }
 */
+static void instr_execute_2op()
+{
+	operand_read(&opr_src);
+	operand_read(&opr_dest);
+	alu_sub(opr_src,val,opr_dest.val);
+}
+/*
 make_instr_func(cmp_bv)
 {
 	int len=1;
 	OPERAND rm,r;
-	rm.data_size=8;
-	r.data_size=data_size;
+	rm.data_size=data_size;
+	r.data_size=8;
 	len+=modrm_r_rm(eip+1,&r,&rm);
 	operand_read(&rm);
 	operand_read(&r);
 //	alu_sub(r.val,rm.val);
 	printf("%d,%d\n",r.type,rm.type);
 	return len;
-}
+}*/
+make_instr_impl_2op(cmp_bv,i,rm,b)
