@@ -5,6 +5,7 @@ void pre_call(int n)
 	Mesp.type=OPR_MEM;
 	Mesp.addr=cpu.esp;
 	Mesp.val=cpu.eip+n;
+	Mesp.data_size=32;
 	operand_write(&Mesp);
 }
 make_instr_func(call_Av)
