@@ -175,7 +175,7 @@ make_instr_func(group_7) {
 */
 make_instr_func(cmp_bv)
 {
-	int len=0;
+	int len=1;
 	OPERAND r,rm;
 	r.data_size=8;
 	rm.data_size=data_size;
@@ -183,6 +183,6 @@ make_instr_func(cmp_bv)
 	operand_read(&rm);
 	operand_read(&r);
 	alu_sub(r.val,rm.val);
-	printf("%d,%d\n",r.val,rm.val);
+	printf("%d,%d\n",r.addr,rm.addr);
 	return len;
 }
