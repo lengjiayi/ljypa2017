@@ -179,18 +179,18 @@ static void instr_execute_2op()
 	operand_read(&opr_dest);
 	alu_sub(opr_src.val,opr_dest.val);
 }
-/*
+
 make_instr_func(cmp_bv)
 {
 	int len=1;
-	OPERAND rm,r;
+	OPERAND rm,imm;
 	rm.data_size=data_size;
-	r.data_size=8;
-	len+=modrm_r_rm(eip+1,&r,&rm);
+	imm.data_size=8;
+	len+=modrm_rm(eip+1,&rm);
 	operand_read(&rm);
-	operand_read(&r);
+	operand_read(&imm);
 //	alu_sub(r.val,rm.val);
 	printf("%d,%d\n",r.type,rm.type);
 	return len;
-}*/
-make_instr_impl_2op(cmp,i,r,v)
+}
+//make_instr_impl_2op(cmp,i,r,v)
