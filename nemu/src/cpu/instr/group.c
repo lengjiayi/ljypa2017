@@ -192,7 +192,7 @@ make_instr_func(cmp_i2r_v)
 	imm.addr=len+eip;
 	operand_read(&rm);
 	operand_read(&imm);
-//	alu_sub(r.val,rm.val);
+	alu_sub(imm.val,rm.val);
 	printf("%d,%d\n",imm.val,rm.val);
 	return len+1;
 }
