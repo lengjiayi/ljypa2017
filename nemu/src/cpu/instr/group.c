@@ -175,5 +175,12 @@ make_instr_func(group_7) {
 */
 make_instr_func(cmp)
 {
-	return 0;
+	int len=1;
+	OPERAND r,rm;
+	r.data_size=rm.data_size=data_size;
+	len+=modrm_r_rm(eip+1,&r,&rm);
+	operand_read(&rm);
+	operand_read(&r);
+	alu_sub(r.val,rm.val);
+	return len;
 }
