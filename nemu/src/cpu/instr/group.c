@@ -179,7 +179,7 @@ make_instr_func(cmp_bv)
 	OPERAND rm;
 	uint_8 r;
 	rm.data_size=data_size;
-	len+=modrm_rm(eip+1,&r,&rm);
+	len+=modrm_opcode_rm(eip+1,&r,&rm);
 	operand_read(&rm);
 //	operand_read(&r);
 //	alu_sub(r.val,rm.val);
