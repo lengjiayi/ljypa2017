@@ -173,14 +173,17 @@ make_instr_func(group_7) {
 	return len;
 }
 */
-/*
-static void instr_execute_2op()
+static void instr_execute_1op()
 {
+	dest.addr=eip+len;
+	dest.data_size=8;
+	dest.type=OPR_IMM;
 	operand_read(&opr_src);
 	operand_read(&opr_dest);
 	alu_sub(opr_src.val,opr_dest.val);
+	len+=1;
 }
-*/
+/*
 make_instr_func(cmp_i2r_v)
 {
 	int len=1;
@@ -195,5 +198,5 @@ make_instr_func(cmp_i2r_v)
 	alu_sub(imm.val,rm.val);
 	printf("%d,%d\n",imm.val,rm.val);
 	return len+1;
-}
-//make_instr_impl_2op(cmp,i,r,v)
+}*/
+make_instr_impl_2op(cmp,i,r,v)
