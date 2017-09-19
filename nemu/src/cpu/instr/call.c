@@ -8,6 +8,6 @@ make_instr_func(call_Av)
 	operand_read(&dfun);
 //	printf("%d\n",dfun.val);
 	cpu.eip+=dfun.val+data_size/8;
-//	printf("%x\n",cpu.eip);
+	printf("%x\n",cpu.eip);
 	return 0;
 }
