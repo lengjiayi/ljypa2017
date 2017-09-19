@@ -193,4 +193,4 @@ make_instr_func(cmp_bv)
 	printf("%d,%d\n",r.type,rm.type);
 	return len;
 }*/
-make_instr_impl_2op(cmp_bv,i,rm,b)
+make_instr_impl_2op(cmp,i,rm,v)
