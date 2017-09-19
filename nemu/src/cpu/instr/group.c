@@ -189,6 +189,7 @@ make_instr_func(cmp_i2r_v)
 	imm.data_size=8;
 	imm.type=OPR_IMM;
 	len+=modrm_rm(eip+1,&rm);
+	imm.addr=len+eip;
 	operand_read(&rm);
 	operand_read(&imm);
 //	alu_sub(r.val,rm.val);
