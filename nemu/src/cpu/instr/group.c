@@ -173,4 +173,7 @@ make_instr_func(group_7) {
 	return len;
 }
 */
-make_instr_func(cmp);
+make_instr_func(cmp)
+{
+	return 0;
+}
