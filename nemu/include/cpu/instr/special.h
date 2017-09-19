@@ -13,5 +13,5 @@ make_instr_func(hlt);
 make_instr_func(opcode_2_byte);
 make_instr_func(cbw_a_v);
 make_instr_func(push_ebp);
-make_instr_func(call);
+make_instr_func(call_Av);
 #endif
