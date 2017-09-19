@@ -10,7 +10,7 @@ void pre_call(int n)
 }
 make_instr_func(call_Av)
 {
-	pre_call(1);
+	pre_call(8);
 	OPERAND dfun;
 	dfun.type=OPR_IMM;
 	dfun.addr=eip+1;
