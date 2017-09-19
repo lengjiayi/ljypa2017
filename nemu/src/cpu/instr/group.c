@@ -173,13 +173,14 @@ make_instr_func(group_7) {
 	return len;
 }
 */
+/*
 static void instr_execute_2op()
 {
 	operand_read(&opr_src);
 	operand_read(&opr_dest);
 	alu_sub(opr_src.val,opr_dest.val);
 }
-
+*/
 make_instr_func(cmp_bv)
 {
 	int len=1;
