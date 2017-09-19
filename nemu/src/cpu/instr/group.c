@@ -177,7 +177,7 @@ static void instr_execute_2op()
 {
 	operand_read(&opr_src);
 	operand_read(&opr_dest);
-	alu_sub(opr_src,val,opr_dest.val);
+	alu_sub(opr_src.val,opr_dest.val);
 }
 /*
 make_instr_func(cmp_bv)
