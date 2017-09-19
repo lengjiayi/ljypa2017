@@ -176,13 +176,13 @@ make_instr_func(group_7) {
 make_instr_func(cmp_bv)
 {
 	int len=1;
-	OPERAND rm;
-	uint8_t r;
+	OPERAND rm,r;
 	rm.data_size=data_size;
-	len+=modrm_opcode_rm(eip+1,&r,&rm);
+	r.data_size=8;
+	len+=modrm_r_rm(eip+1,&r,&rm);
 	operand_read(&rm);
-//	operand_read(&r);
+	operand_read(&r);
 //	alu_sub(r.val,rm.val);
-	printf("%d,%d\n",len,rm.val);
+	printf("%d,%d\n",r.val,rm.val);
 	return len;
 }
