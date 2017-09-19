@@ -1,7 +1,15 @@
 #include"cpu/instr.h"
+void pre_call(int n)
+{
+	OPERAND Mesp;
+	Mesp.type=OPR_MEM;
+	Mesp.addr=cpu.esp;
+	Mesp.val=cpu.eip+n;
+	operand_write(&Mesp);
+}
 make_instr_func(call_Av)
 {
-	push_ebp(eip,0);
+	pre_call(1);
 	OPERAND dfun;
 	dfun.type=OPR_IMM;
 	dfun.addr=eip+1;
