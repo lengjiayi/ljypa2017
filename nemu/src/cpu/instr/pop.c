@@ -1,6 +1,6 @@
 #include "cpu/instr.h"
 
-uint32_t POP(int dsize)
+uint32_t mPOP(int dsize)
 {
 	OPERAND ESP;
 	ESP.type=OPR_REG;
