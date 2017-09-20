@@ -23,7 +23,7 @@ make_instr_func(je)
 	{ 
 		return 2;
 	}
-	OPERAND rel;
+/*	OPERAND rel;
 	rel.type=OPR_IMM;
 	rel.addr=eip+1;
 	rel.data_size=8;
@@ -32,4 +32,5 @@ make_instr_func(je)
 	cpu.eip+=offset;
 	printf("%d\n",cpu.eip);
 	return 0;
+*/
 }
