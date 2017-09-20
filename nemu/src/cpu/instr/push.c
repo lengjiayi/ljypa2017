@@ -2,7 +2,7 @@
 #define push_exx(exx_name) \
 make_instr_func(concat(push_,exx_name))\
 {\
-	return push_reg(concat3(cpu,.,exx_name),1); }
+	return push_reg(cpu.exx_name,1); }
 
 int push_reg(uint32_t reg,unsigned len)
 {
