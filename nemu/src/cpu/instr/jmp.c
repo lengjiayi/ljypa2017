@@ -53,7 +53,7 @@ make_instr_func(je)
 }
 */
 
-jump(int eip,int dsize)
+int jump(int eip,int dsize)
 {
 	OPERAND imm;
 	imm.type=OPR_IMM;
