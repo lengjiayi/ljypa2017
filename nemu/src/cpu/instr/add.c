@@ -26,7 +26,7 @@ make_instr_func(add_ib2al)
 	IMM(8)
 	imm.addr=eip+1;
 	operand_read(&imm);
-	cpu.al=alu_add(cpu.al,imm.val);
+	cpu.gpr[0]._8[1]=alu_add(cpu.gpr[0]._8[1],imm.val);
 	return 2;
 }
 make_instr_func(add_iv2eax)
