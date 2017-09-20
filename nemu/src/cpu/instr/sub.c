@@ -13,6 +13,6 @@ make_instr_func(sub_i2rm_v)
 	operand_read(&imm);
 	rm.val=alu_sub(imm.val,rm.val);
 	operand_write(&rm);
-	printf("%x\n",cpu.eip+len+1);
+//	printf("%x\n",cpu.eip+len+1);
 	return len+1;
 }
