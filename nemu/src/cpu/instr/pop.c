@@ -15,7 +15,7 @@ make_instr_func(leave)
 	cpu.esp=cpu.ebp;
 	cpu.ebp=POP(data_size);
 	cpu.esp+=data_size/8;
-	printf("**eax:%d\n",cpu.eax);
+	printf("leave:eax:%d\n",cpu.eax);
 	return 1;
 }
 
