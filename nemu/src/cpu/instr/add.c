@@ -35,7 +35,7 @@ make_instr_func(add_i82v)
 	rm.data_size=data_size;
 	len+=modrm_rm(eip+1,&rm);
 	operand_read(&rm);
-	rm.val+=readimm(8,len+eip);
+	rm.val+=readimm(len+eip,8);
 	operand_write(&rm);
 	len+=1;
 	return len;
