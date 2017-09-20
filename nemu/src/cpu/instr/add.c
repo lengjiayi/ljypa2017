@@ -69,6 +69,6 @@ make_instr_func(lea)
 	rm.val=r.addr;
 	operand_write(&rm);
 	operand_read(&r);
-	printf("%d,%d,%x\n",r.val,cpu.eax,eip+len);
+	printf("%d,%d,%x\n",r.addr,cpu.eax,eip+len);
 	return len;
 }
