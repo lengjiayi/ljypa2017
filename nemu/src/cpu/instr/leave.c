@@ -2,6 +2,6 @@
 make_instr_func(leave)
 {
 	cpu.ebp=cpu.esp;
-	cpu.esp=POP(data_size);
+	cpu.esp=mPOP(data_size);
 	return 1;	
 }
