@@ -12,5 +12,7 @@ make_instr_func(add_i2v)
 	operand_read(&imm);
 	operand_read(&rm);
 	printf("%x,%x\n",rm.val,imm.val);
-	return len+data_size/8;
+	len+=data_size/8;
+	printf("%d\n",len);
+	return len;
 }
