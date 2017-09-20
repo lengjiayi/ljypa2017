@@ -14,6 +14,7 @@ IncreaseR(edi)
 
 make_instr_func(inc_ev)
 {
+	/*
 	int len=1;
 	OPERAND rm;
 	rm.data_size=data_size;
@@ -21,4 +22,5 @@ make_instr_func(inc_ev)
 	operand_read(&rm);
 	printf("%d,%d\n",cpu.eax,rm.val);
 	return 0;
-}
+*/
+	}
