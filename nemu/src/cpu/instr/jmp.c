@@ -37,4 +37,10 @@ make_instr_func(jg)
 {
 	if(!(cpu.eflags.ZF==0 && cpu.eflags.SF==cpu.eflags.OF))
 		return 2;
+	OPERAND imm;
+	imm.type=OPR_IMM;
+	imm.addr=eip+1;
+	operand_read(&imm);
+	printf("%d\n",imm.val);
+	return 1;
 }
