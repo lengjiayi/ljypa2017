@@ -86,3 +86,9 @@ make_instr_func(jbe)
 		return 2;
 	return jump(eip,8);
 }
+make_instr_func(jle)
+{
+	if(!(cpu.eflags.ZF && cpu.eflags.SF!=cpu.eflags.OF))
+		return 2;
+	return jump(eip,8);
+}
