@@ -40,7 +40,7 @@ make_instr_func(add_rv2rv)
 	len+=modrm_r_rm(eip,&r,&rm);
 	operand_read(&r);
 	operand_read(&rm);
-	rm.val=alu_add(sign_ext(r.val),sign_ext(rm.val));
+	rm.val=alu_add(sign_ext(r.val,data_size),sign_ext(rm.val,data_size));
 	operand_write(&rm);
 	return len;
 }
