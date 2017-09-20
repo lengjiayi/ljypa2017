@@ -18,8 +18,9 @@ make_instr_func(jmp_near) {
 }
 make_instr_func(je)
 {
+	return 0;
 	printf("ZF:%d\n",cpu.eflags.ZF);
-	if(!cpu.eflags.ZF)
+	if(cpu.eflags.ZF==0)
 	{ 
 		return 2;
 	}
