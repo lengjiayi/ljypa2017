@@ -11,7 +11,7 @@ make_instr_func(sub_i2rm_v)
 	imm.addr=len+eip;
 	operand_read(&rm);
 	operand_read(&imm);
-	printf("subpr:%d   ",rm.val);
+	printf("subpr:%d,%d   ",rm.addr,rm.val);
 	rm.val=alu_sub(imm.val,rm.val);
 	operand_write(&rm);
 	printf("subpo:%d\n",rm.val);
