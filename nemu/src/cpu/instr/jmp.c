@@ -61,9 +61,9 @@ int jump(int eip,int dsize)
 	imm.addr=eip+1;
 	imm.data_size=dsize;
 	operand_read(&imm);
-	imm.val=sign_ext(imm.val,data_size);
+	imm.val=sign_ext(imm.val,dsize);
 	printf("eip_post:%x\n",imm.val);
-	cpu.eip+=(int)imm.val+2;
+	cpu.eip+=imm.val+2;
 	return 0;
 }
 make_instr_func(je)
