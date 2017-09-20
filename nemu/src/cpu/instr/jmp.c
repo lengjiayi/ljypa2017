@@ -88,6 +88,7 @@ make_instr_func(jbe)
 }
 make_instr_func(jle)
 {
+	printf("%d,%d,%d\n",cpu.eflags.ZF,cpu.eflags.SF,cpu.eflags.OF);
 	if(!(cpu.eflags.ZF && cpu.eflags.SF!=cpu.eflags.OF))
 		return 2;
 	return jump(eip,8);
