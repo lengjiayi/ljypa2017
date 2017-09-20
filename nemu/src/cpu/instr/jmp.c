@@ -66,6 +66,14 @@ int jump(int eip,int dsize)
 }
 make_instr_func(je)
 {
+	if(cpu.eflags.ZF==0)
+	{ 
+		return 2;
+	}
+	return jump(eip,8);	
+}
+make_instr_func(jg)
+{
 	if(!(cpu.eflags.ZF==0 && cpu.eflags.SF==cpu.eflags.OF))
 		return 2;
 	return jump(eip,8);
