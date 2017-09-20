@@ -16,3 +16,14 @@ make_instr_func(jmp_near) {
 
         return 1 + data_size / 8;
 }
+make_instr_func(je)
+{
+	OPERAND rel;
+	rel.type=OPR_IMM;
+	rel.addr=eip+1;
+	rel.data_size=8;
+	operand_read(&rel);
+	int offset=sign_ext(rel.val,data_size);
+	cpu.eip+=offset;
+	return 2;
+}
