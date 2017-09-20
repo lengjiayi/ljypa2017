@@ -1,6 +1,6 @@
 #include"cpu/instr.h"
 #define push_exx(exx_name) \
-make_instr_func(concat3(push,_,exx_name))\
+make_instr_func(concat(push_,exx_name))\
 {\
 	return push_reg(concat3(cpu,.,exx_name),1); }
 
