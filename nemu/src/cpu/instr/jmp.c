@@ -30,6 +30,6 @@ make_instr_func(je)
 	operand_read(&rel);
 	int offset=sign_ext(rel.val,data_size);
 	cpu.eip+=offset+2;
-//	printf("%x\n",cpu.eip);
+	printf("%x\n",cpu.eip);
 	return 0;
 }
