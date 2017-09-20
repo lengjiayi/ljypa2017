@@ -1,4 +1,8 @@
 #include"cpu/instr.h"
+#define push_exx(exx_name) \
+make_instr_func(concat2(push_,exx_name))\
+{\
+	return push_reg(concat2(cpu,.,exx_name),1); }
 
 int push_reg(uint32_t reg,unsigned len)
 {
@@ -9,11 +13,37 @@ int push_reg(uint32_t reg,unsigned len)
 	operand_write(&ESP);
 	return len;
 }
-make_instr_func(push_ebp)
+
+make_instr_func(push_eax)
 {
-	return push_reg(cpu.ebp,1);
+	return push_reg(cpu.eax,1);
+}
+make_instr_func(push_ecx)
+{
+	return push_reg(cpu.ecx,1);
+}
+make_instr_func(push_edx)
+{
+	return push_reg(cpu.edx,1);
 }
 make_instr_func(push_ebx)
 {
 	return push_reg(cpu.ebx,1);
 }
+make_instr_func(push_esp)
+{
+	return push_reg(cpu.esp,1);
+}
+make_instr_func(push_ebp)
+{
+	return push_reg(cpu.ebp,1);
+}
+make_instr_func(push_esi)
+{
+	return push_reg(cpu.esi,1);
+}
+make_instr_func(push_edi)
+{
+	return push_reg(cpu.edi,1);
+}
+
