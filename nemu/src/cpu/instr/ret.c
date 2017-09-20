@@ -10,6 +10,7 @@ make_instr_func(ret_near)
 	if(data_size==16)
 		Mesp.val&=0x0000ffff;
 	cpu.eip=Mesp.val;
-//	cpu.esp+=1;
+	cpu.esp+=1;
+	printf("ret:%x\n",eip);
 	return 0;
 }
