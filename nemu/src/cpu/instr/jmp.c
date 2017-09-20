@@ -33,7 +33,7 @@ make_instr_func(jmp_short)
 
         return 1 + data_size / 8;
 }
-
+/*
 make_instr_func(je)
 {
 //	printf("ZF:%d\n",cpu.eflags.ZF);
@@ -51,16 +51,28 @@ make_instr_func(je)
 //	printf("%x\n",cpu.eip);
 	return 0;
 }
+*/
+
+jump(int dsize)
+{
+	OPERAND imm;
+	imm.type=OPR_IMM;
+	imm.addr=eip+1;
+	imm.data_size=dsize;
+	operand_read(&imm);
+//	printf("%d\n",imm.val);
+	cpu.eip+=imm.val+2;
+	return 0;
+}
 make_instr_func(jg)
 {
 	if(!(cpu.eflags.ZF==0 && cpu.eflags.SF==cpu.eflags.OF))
 		return 2;
-	OPERAND imm;
-	imm.type=OPR_IMM;
-	imm.addr=eip+1;
-	imm.data_size=8;
-	operand_read(&imm);
-	printf("%d\n",imm.val);
-	cpu.eip+=imm.val+2;
-	return 0;
+	return jump(8);
+}
+make_instr_func(jbe)
+{
+	if(!(cpu.eflags.ZF || cpu.eflags.CF))
+		return 2;
+	return jump(8);
 }
