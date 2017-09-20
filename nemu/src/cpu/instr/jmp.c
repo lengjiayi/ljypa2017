@@ -18,6 +18,10 @@ make_instr_func(jmp_near) {
 }
 make_instr_func(je)
 {
+	if(!cpu.eflags.ZF)
+	{
+		return 2;
+	}
 	OPERAND rel;
 	rel.type=OPR_IMM;
 	rel.addr=eip+1;
@@ -25,5 +29,5 @@ make_instr_func(je)
 	operand_read(&rel);
 	int offset=sign_ext(rel.val,data_size);
 	cpu.eip+=offset;
-	return 2;
+	return 0;
 }
