@@ -55,6 +55,7 @@ make_instr_func(je)
 
 int jump(int eip,int dsize)
 {
+	printf("%x\n",eip+imm.val+2);
 	OPERAND imm;
 	imm.type=OPR_IMM;
 	imm.addr=eip+1;
