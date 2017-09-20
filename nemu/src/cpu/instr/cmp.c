@@ -11,7 +11,7 @@ make_instr_func(cmp_i2r_v)
     operand_read(&rm);
     operand_read(&imm);
     alu_sub(imm.val,rm.val);
-//  printf("%d,%d\n",imm.val,rm.val);
+	printf("%x\n",len+eip);
     return len;
 }
 make_instr_func(cmp_rv2rv)
