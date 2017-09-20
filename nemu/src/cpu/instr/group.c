@@ -200,4 +200,3 @@ make_instr_func(cmp_i2r_v)
 	return len+1;
 }
 //make_instr_impl_2op(cmp,i,r,v)
-#include"add.c"
