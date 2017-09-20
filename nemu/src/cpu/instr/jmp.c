@@ -62,7 +62,7 @@ int jump(int eip,int dsize)
 	imm.data_size=dsize;
 	operand_read(&imm);
 	imm.val=sign_ext(imm.val,dsize);
-	printf("eip_post:%x\n",imm.val);
+	printf("eip_post:%x\n",imm.val+2+eip);
 	cpu.eip+=imm.val+2;
 	return 0;
 }
