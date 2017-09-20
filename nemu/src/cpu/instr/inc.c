@@ -14,7 +14,7 @@ IncreaseR(edi)
 
 make_instr_func(inc_ev)
 {
-	int len=1;
+//	int len=1;
 	OPERAND rm;
 	rm.data_size=data_size;
 //	len+=modrm_opcode_rm(eip+1,0,&rm);
