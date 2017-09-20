@@ -23,5 +23,5 @@ make_instr_func(inc_ev)
 	printf("%d,%d\n",cpu.eax,rm.val);
 	return 0;
 */
-	return 0;
+	return 3;
 }
