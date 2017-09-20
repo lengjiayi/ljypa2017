@@ -1,14 +1,12 @@
 #include"cpu/instr.h"
-#define IMM(dsize)\
-	OPERAND imm;\
-	imm.data_size=dsize;\
-	imm.type=OPR_IMM;\
-	
+
 make_instr_func(add_i2v)
 {
 	int len=1;
-	IMM(data_size)
-	OPERAND rm;
+	OPERAND rm,imm;
+	rm.data_size=data_size;
+	imm.data_size=data_size;
+	imm.type=OPR_IMM;
 	len+=modrm_rm(eip+1,&rm);
 	imm.addr=len+eip;
 	operand_read(&imm);
@@ -19,22 +17,4 @@ make_instr_func(add_i2v)
 	len+=data_size/8;
 //	printf("%d\n",len);
 	return len;
-}
-/*
-make_instr_func(add_ib2al)
-{
-	IMM(8)
-	imm.addr=eip+1;
-	operand_read(&imm);
-	cpu.gpr[0]._8[1]=alu_add(cpu.gpr[0]._8[1],imm.val);
-	return 2;
-}
-*/
-make_instr_func(add_iv2eax)
-{
-	IMM(data_size)
-	imm.addr=eip+1;
-	operand_read(&imm);
-	cpu.eax=alu_add(cpu.eax,imm.val);
-	return 1+data_size/8;
 }
