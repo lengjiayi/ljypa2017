@@ -20,7 +20,7 @@ make_instr_func(add_i2v)
 //	printf("%d\n",len);
 	return len;
 }
-
+/*
 make_instr_func(add_ib2al)
 {
 	IMM(8)
@@ -29,6 +29,7 @@ make_instr_func(add_ib2al)
 	cpu.gpr[0]._8[1]=alu_add(cpu.gpr[0]._8[1],imm.val);
 	return 2;
 }
+*/
 make_instr_func(add_iv2eax)
 {
 	IMM(data_size)
