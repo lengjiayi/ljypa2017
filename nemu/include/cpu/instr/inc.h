@@ -9,4 +9,5 @@ make_instr_func(inc_esp);
 make_instr_func(inc_ebp);
 make_instr_func(inc_esi);
 make_instr_func(inc_edi);
+make_instr_func(inc_ev);
 #endif
