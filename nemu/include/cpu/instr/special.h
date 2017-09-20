@@ -15,4 +15,5 @@ make_instr_func(cbw_a_v);
 make_instr_func(push_ebp);
 make_instr_func(call_Av);
 make_instr_func(ret_near);
+make_instr_func(test_r2rm_v);
 #endif
