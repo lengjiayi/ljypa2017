@@ -13,7 +13,15 @@ int push_reg(uint32_t reg,unsigned len)
 	operand_write(&ESP);
 	return len;
 }
-
+push_exx(eax)
+push_exx(ecx)
+push_exx(edx)
+push_exx(ebx)
+push_exx(esp)
+push_exx(ebp)
+push_exx(esi)
+push_exx(edi)
+/*
 make_instr_func(push_eax)
 {
 	return push_reg(cpu.eax,1);
@@ -46,4 +54,4 @@ make_instr_func(push_edi)
 {
 	return push_reg(cpu.edi,1);
 }
-
+*/
