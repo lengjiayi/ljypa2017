@@ -42,6 +42,6 @@ make_instr_func(add_rv2rv)
 	operand_read(&rm);
 	rm.val=alu_add(sign_ext(r.val,data_size),sign_ext(rm.val,data_size));
 	operand_write(&rm);
-	return len;
 	printf("*******************%d\n",eip+len);
+	return len;
 }
