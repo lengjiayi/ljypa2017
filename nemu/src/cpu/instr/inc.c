@@ -16,9 +16,11 @@ make_instr_func(inc_ev)
 {
 	int len=1;
 	OPERAND rm;
-	rm.data_size=16;
+	rm.data_size=data_size;
 	len+=modrm_rm(eip+1,&rm);
 	operand_read(&rm);
-	printf("%x,%x\n",cpu.ebp,rm.addr);
+	rm.val+=1;
+	operand_write(&rm);
+	printf("%x,%d\n",rm.addr,len);
 	return len;
 }
