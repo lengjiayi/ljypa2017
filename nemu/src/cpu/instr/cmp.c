@@ -23,5 +23,5 @@ make_instr_func(cmp_rv2rv)
 	operand_read(&r);
 	operand_read(&rm);
 	alu_sub(r.val,rm.val);
-	return len+1;
+	return len;
 }
