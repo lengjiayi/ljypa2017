@@ -12,6 +12,7 @@ int push_reg(uint32_t reg,unsigned len)
 	ESP.data_size=32;
 	operand_write(&ESP);
 	cpu.esp-=1;
+	printf("push: %d\n",eip);
 	return len;
 }
 push_exx(eax)
