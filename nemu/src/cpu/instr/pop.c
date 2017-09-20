@@ -7,7 +7,7 @@ static uint32_t POP(int dsize)
 	ESP.addr=REG_ESP;
 	ESP.data_size=dsize;
 	operand_read(&ESP);
-	cpu.esp+=0;
+	cpu.esp-=1;
 	operand_read(&ESP);
 	printf("%x\n",ESP.val);
 	return ESP.val;
