@@ -40,6 +40,7 @@ make_instr_func(jg)
 	OPERAND imm;
 	imm.type=OPR_IMM;
 	imm.addr=eip+1;
+	imm.data_size=8;
 	operand_read(&imm);
 	printf("%d\n",imm.val);
 	return 1;
