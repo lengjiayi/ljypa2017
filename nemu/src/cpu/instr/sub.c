@@ -2,7 +2,7 @@
 
 make_instr_func(sub_i2rm_v)
 {
-	printf("eip:%x",cpu.eip);
+//	printf("eip:%x",cpu.eip);
 	int len=1;
 	OPERAND rm,imm;
 	rm.data_size=data_size;
@@ -12,9 +12,10 @@ make_instr_func(sub_i2rm_v)
 	imm.addr=len+eip;
 	operand_read(&rm);
 	operand_read(&imm);
-	printf("subpr:%d,%x   ",rm.type,rm.val);
+//	printf("subpr:%d,%x   ",rm.type,rm.val);
 	rm.val=alu_sub(imm.val,rm.val);
 	operand_write(&rm);
-	printf("subpo:%x\n",rm.val);
+	print_asm_2("sub",i"b",10,&rm,&imm)
+//	printf("subpo:%x\n",rm.val);
 	return len+1;
 }
