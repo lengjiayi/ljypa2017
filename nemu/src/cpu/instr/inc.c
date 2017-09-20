@@ -21,6 +21,6 @@ make_instr_func(inc_ev)
 	operand_read(&rm);
 	rm.val+=1;
 	operand_write(&rm);
-	printf("%x,%d\n",rm.addr,len);
+	printf("%x,%x\n",rm.addr,eip+len);
 	return len;
 }
