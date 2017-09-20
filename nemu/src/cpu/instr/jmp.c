@@ -33,7 +33,7 @@ make_instr_func(jmp_short)
 
         return 1 + data_size / 8;
 }
-m
+
 make_instr_func(je)
 {
 //	printf("ZF:%d\n",cpu.eflags.ZF);
