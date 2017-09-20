@@ -33,3 +33,8 @@ make_instr_func(je)
 	printf("%x\n",cpu.eip);
 	return 0;
 }
+make_instr_func(jg)
+{
+	if(!(cpu.eflags.ZF==0 && cpu.eflags.SF==cpu.eflags.OF))
+		return 2;
+}
