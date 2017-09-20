@@ -68,6 +68,7 @@ int jump(int eip,int dsize)
 }
 make_instr_func(je)
 {
+	print_asm_0("je","",10);
 	if(cpu.eflags.ZF==0)
 	{ 
 		return 2;
@@ -76,18 +77,21 @@ make_instr_func(je)
 }
 make_instr_func(jg)
 {
+	print_asm_0("jg","",10);
 	if(!(cpu.eflags.ZF==0 && cpu.eflags.SF==cpu.eflags.OF))
 		return 2;
 	return jump(eip,8);
 }
 make_instr_func(jbe)
 {
+	print_asm_0("jbe","",10);
 	if(!(cpu.eflags.ZF || cpu.eflags.CF))
 		return 2;
 	return jump(eip,8);
 }
 make_instr_func(jle)
 {
+	print_asm_0("jle","",10);
 //	printf("%d,%d,%d\n",cpu.eflags.ZF,cpu.eflags.SF,cpu.eflags.OF);
 	if(!(cpu.eflags.ZF || cpu.eflags.SF!=cpu.eflags.OF))
 		return 2;
@@ -95,6 +99,7 @@ make_instr_func(jle)
 }
 make_instr_func(jne)
 {
+	print_asm_0("jne","",10);
 	if(cpu.eflags.ZF)
 		return 2;
 	return jump(eip,8);
