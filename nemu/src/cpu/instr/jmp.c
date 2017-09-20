@@ -18,13 +18,12 @@ make_instr_func(jmp_near) {
 }
 make_instr_func(je)
 {
-	return 0;
 	printf("ZF:%d\n",cpu.eflags.ZF);
 	if(cpu.eflags.ZF==0)
 	{ 
 		return 2;
 	}
-/*	OPERAND rel;
+	OPERAND rel;
 	rel.type=OPR_IMM;
 	rel.addr=eip+1;
 	rel.data_size=8;
@@ -32,5 +31,5 @@ make_instr_func(je)
 	int offset=sign_ext(rel.val,data_size);
 	cpu.eip+=offset;
 	printf("%d\n",cpu.eip);
-*/	return 0;
+	return 1;
 }
