@@ -1,6 +1,6 @@
 #include"cpu/instr.h"
 
-void push_reg(uint32_t reg,unsigned len)
+int push_reg(uint32_t reg,unsigned len)
 {
 	OPERAND ESP;
 	ESP.val=reg;
