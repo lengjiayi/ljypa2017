@@ -1,6 +1,6 @@
 #include"cpu/instr.h"
 
-void push(uint32_t &reg,unsigned len)
+void push_reg(uint32_t &reg,unsigned len)
 {
 	OPERAND ESP;
 	ESP.val=reg;
@@ -11,9 +11,9 @@ void push(uint32_t &reg,unsigned len)
 }
 make_instr_func(push_ebp)
 {
-	return push(cpu.ebp,1);
+	return push_reg(cpu.ebp,1);
 }
 make_instr_func(push_ebx)
 {
-	return push(cpu.ebx,1);
+	return push_reg(cpu.ebx,1);
 }
