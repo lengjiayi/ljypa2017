@@ -24,6 +24,7 @@ push_exx(esp)
 push_exx(ebp)
 push_exx(esi)
 push_exx(edi)
+push_exx(eip)
 /*
 make_instr_func(push_eax)
 {

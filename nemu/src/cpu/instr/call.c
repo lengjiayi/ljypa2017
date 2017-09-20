@@ -17,6 +17,8 @@ make_instr_func(call_Av)
 	dfun.data_size=data_size;
 	operand_read(&dfun);
 //	printf("%d\n",dfun.val);
+	print_asm_0("call","",2);
+	push_eip(eip,0);
 	cpu.eip+=dfun.val+data_size/8+1;
 //	printf("%x\n",cpu.eip);
 	return 0;
