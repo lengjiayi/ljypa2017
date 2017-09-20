@@ -18,10 +18,10 @@ make_instr_func(add_i2v)
 //	printf("%d\n",len);
 	return len;
 }
-uint32_t readimm(int dsize)
+static uint32_t readimm(int eip,int dsize)
 {
 	OPERAND imm;
-	imm.type=IMM;
+	imm.type=OPR_IMM;
 	imm.data_size=dsize;
 	imm.addr=eip+1;
 	operand_read(&imm);
@@ -29,6 +29,6 @@ uint32_t readimm(int dsize)
 }
 make_instr_func(add_iv2eax)
 {
-	cpu.eax=alu_add(cpu.eax,readimm(data_size));
+	cpu.eax=alu_add(cpu.eax,readimm(eip,data_size));
 	return data_size/8+1;
 }
