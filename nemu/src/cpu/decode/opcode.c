@@ -1,7 +1,7 @@
 #include "cpu/instr.h"
 
 instr_func opcode_entry[256] = {
-/* 0x00 - 0x03*/	inv, inv, inv, inv,
+/* 0x00 - 0x03*/	inv, add_rv2rv, inv, add_rv2rv,
 /* 0x04 - 0x07*/	inv, add_iv2eax, inv, inv,
 /* 0x08 - 0x0b*/	inv, inv, inv, inv,
 /* 0x0c - 0x0f*/	inv, inv, inv, opcode_2_byte,

@@ -32,3 +32,15 @@ make_instr_func(add_iv2eax)
 	cpu.eax=alu_add(cpu.eax,readimm(eip,data_size));
 	return data_size/8+1;
 }
+make_instr_func(add_rv2rv)
+{
+	int len=1;
+	OPERAND r,rm;
+	r.data_size=rm.data_size=data_size;
+	len+=modrm_r_rm(eip,&r,&rm);
+	operand_read(&r);
+	operand_read(&rm);
+	rm.val=alu_add(sign_ext(r.val),sign_ext(rm.val));
+	operand_write(&rm);
+	return len;
+}
