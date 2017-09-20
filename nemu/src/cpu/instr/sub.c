@@ -12,6 +12,6 @@ make_instr_func(sub_i2rm_v)
 	operand_read(&rm);
 	operand_read(&imm);
 	rm.val=alu_sub(imm.val,rm.val);
-	operand_write(rm);
+	operand_write(&rm);
 	return len+1;
 }
