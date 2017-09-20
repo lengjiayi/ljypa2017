@@ -7,7 +7,7 @@
 make_instr_func(add_i2v)
 {
 	int len=1;
-	IMM
+	IMM(data_size)
 	OPERAND rm;
 	len+=modrm_rm(eip+1,&rm);
 	imm.addr=len+eip;
