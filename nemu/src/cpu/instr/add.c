@@ -67,7 +67,8 @@ make_instr_func(lea)
 	r.data_size=rm.data_size=data_size;
 	len+=modrm_r_rm(eip+1,&r,&rm);
 	rm.val=r.addr;
-	operand_write(&r);
+	operand_write(&rm);
+	printf("%d,%d",r.type,rm.type);
 	printf("%d\n",cpu.edx);
 	printf("aware me at lea instr/add.c\n");
 	return len;
