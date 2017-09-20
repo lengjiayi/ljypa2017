@@ -18,8 +18,9 @@ make_instr_func(jmp_near) {
 }
 make_instr_func(je)
 {
+	printf("ZF:%d\n",cpu.eflags.ZF);
 	if(!cpu.eflags.ZF)
-	{
+	{ 
 		return 2;
 	}
 	OPERAND rel;
