@@ -29,7 +29,7 @@ make_instr_func(je)
 	rel.data_size=8;
 	operand_read(&rel);
 	int offset=sign_ext(rel.val,data_size);
-	cpu.eip+=offset;
+	cpu.eip+=offset+2;
 	printf("%x\n",cpu.eip);
-	return 1;
+	return 0;
 }
