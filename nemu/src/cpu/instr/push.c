@@ -12,8 +12,8 @@ int push_reg(uint32_t reg,unsigned len)
 	ESP.data_size=32;
 	operand_write(&ESP);
 	cpu.esp-=4;
-	print_asm_0("pushl","exx",2);
-	printf("esp:%x\n",cpu.esp);
+	print_asm_0("pushl ","exx",2);
+//	printf("esp:%x\n",cpu.esp);
 	return len;
 }
 push_exx(eax)

@@ -12,6 +12,6 @@ make_instr_func(ret_near)
 	cpu.eip=Mesp.val;
 	cpu.esp+=data_size/8;
 	print_asm_0("ret","",1);
-	printf("ret:%x\n",cpu.eip);
+	printf("ret at:%x\n, eax:%d,edx:%d",cpu.eip,cpu.eax,cpu.edx);
 	return 0;
 }
