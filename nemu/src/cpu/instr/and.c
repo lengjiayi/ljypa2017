@@ -9,7 +9,7 @@ make_instr_func(and_r2r_b)
 	operand_read(&r);
 	operand_read(&rm);
 	printf("%x,%x\n",r.val,rm.val);
-	rm.val&==(r.val&0xff);
+	rm.val==rm.val&(r.val&0xff);
 	printf("%x\n",rm.val);
 	operand_write(&rm);
 	return len;	
