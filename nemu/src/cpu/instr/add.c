@@ -71,7 +71,7 @@ make_instr_func(lea)
 	operand_write(&r);
 	print_asm_2("lea","v",10,&r,&rm);
 //	printf("%d,%d",r.addr,rm.addr);
-	printf("edx:%d,eax:%d\n",cpu.edx,cpu.eax);
+//	printf("edx:%d,eax:%d\n",cpu.edx,cpu.eax);
 //	printf("aware me at lea instr/add.c\n");
 	return len;
 }
