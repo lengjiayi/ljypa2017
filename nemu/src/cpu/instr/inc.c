@@ -20,6 +20,5 @@ make_instr_func(inc_ev)
 	len+=modrm_opcode_rm(eip+1,0,&rm);
 //	operand_read(&rm);
 	printf("%d,%d\n",cpu.eax,rm.addr);
-	return 0;
 	return 3;
 }
