@@ -2,6 +2,7 @@
 
 make_instr_func(sub_i2rm_v)
 {
+	printf("eip:%x",cpu.eip);
 	int len=1;
 	OPERAND rm,imm;
 	rm.data_size=data_size;
