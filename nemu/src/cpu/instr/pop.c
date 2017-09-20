@@ -14,11 +14,11 @@ make_instr_func(leave)
 {
 	cpu.ebp=cpu.esp;
 	cpu.esp=POP(data_size);
+	printf("%x\n",eip+1);
 	return 1;
 }
 
 make_instr_func(pop_mv)
 {
-	printf("%x\n",eip+1);
 	return 1;
 }
