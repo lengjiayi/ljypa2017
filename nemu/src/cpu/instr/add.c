@@ -7,7 +7,7 @@ static uint32_t readimm(int iaddr,int dsize)
 	imm.data_size=dsize;
 	imm.addr=iaddr;
 	operand_read(&imm);
-	return imm.val;
+	return sign_ext(imm.val,dsize);
 }
 
 make_instr_func(add_i2v)
@@ -22,7 +22,7 @@ make_instr_func(add_i2v)
 //	operand_read(&imm);
 	operand_read(&rm);
 //	printf("%x,%x,%x\n",rm.val,imm.val,cpu.edx);
-	rm.val=alu_add(rm.val,readimm(len+eip,data_size));
+	rm.val=alu_add(sign_ext(rm.val,data_size),readimm(len+eip,data_size));
 	operand_write(&rm);
 	len+=data_size/8;
 //	printf("%d\n",len);
@@ -35,7 +35,7 @@ make_instr_func(add_i82v)
 	rm.data_size=data_size;
 	len+=modrm_rm(eip+1,&rm);
 	operand_read(&rm);
-	rm.val=alu_add(sign_ext(rm.val,data_size),sign_ext(readimm(len+eip,8),data_size));
+	rm.val=alu_add(sign_ext(rm.val,data_size),readimm(len+eip,8),data_size);
 	operand_write(&rm);
 	len+=1;
 	return len;
