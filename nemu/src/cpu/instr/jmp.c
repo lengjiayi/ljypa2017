@@ -28,11 +28,9 @@ make_instr_func(jmp_short)
 
 	int offset = sign_ext(rel.val, data_size);
 	print_asm_1("jmp", "", 2, &rel);
-
 	cpu.eip += offset;
-
-	return 0;
-	//        return 1 + data_size / 8;
+	printf("jmps:%x\n",cpu.eip);
+    return 1 + data_size / 8;
 }
 /*
 make_instr_func(je)
