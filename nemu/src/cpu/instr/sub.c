@@ -15,7 +15,7 @@ make_instr_func(sub_i2rm_v)
 //	printf("subpr:%d,%x   ",rm.type,rm.val);
 	rm.val=alu_sub(imm.val,rm.val);
 	operand_write(&rm);
-	print_asm_2("sub",i"b",10,&rm,&imm)
+	print_asm_2("sub","b",10,&rm,&imm)
 //	printf("subpo:%x\n",rm.val);
 	return len+1;
 }
