@@ -18,7 +18,7 @@ make_instr_func(jmp_near) {
 }
 make_instr_func(je)
 {
-	printf("ZF:%d\n",cpu.eflags.ZF);
+//	printf("ZF:%d\n",cpu.eflags.ZF);
 	if(cpu.eflags.ZF==0)
 	{ 
 		return 2;
@@ -30,6 +30,6 @@ make_instr_func(je)
 	operand_read(&rel);
 	int offset=sign_ext(rel.val,data_size);
 	cpu.eip+=offset;
-	printf("%d\n",cpu.eip);
+	printf("%x\n",cpu.eip);
 	return 1;
 }
