@@ -70,7 +70,7 @@ make_instr_func(lea)
 	r.val=rm.addr;
 	operand_write(&r);
 //	printf("%d,%d",r.addr,rm.addr);
-	printf("%d\n",cpu.edx);
+	printf("edx:%d,eax:%d\n",cpu.edx,cpu.eax);
 	printf("aware me at lea instr/add.c\n");
 	return len;
 }
