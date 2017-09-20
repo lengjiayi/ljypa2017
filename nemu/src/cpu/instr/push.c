@@ -5,13 +5,13 @@ make_instr_func(concat(push_,exx_name))\
 	return push_reg(cpu.exx_name,1); }
 
 int push_reg(uint32_t reg,unsigned len)
-{
+{	
+	cpu.esp-=4;
 	OPERAND ESP;
 	ESP.val=reg;
 	ESP.addr=cpu.esp;
 	ESP.data_size=32;
 	operand_write(&ESP);
-	cpu.esp-=4;
 	print_asm_0("pushl ","exx",2);
 //	printf("esp:%x\n",cpu.esp);
 	return len;

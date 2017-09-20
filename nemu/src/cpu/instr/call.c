@@ -1,13 +1,13 @@
 #include"cpu/instr.h"
 void pre_call(int n)
 {
+	cpu.esp-=4;
 	OPERAND Mesp;
 	Mesp.type=OPR_MEM;
 	Mesp.addr=cpu.esp;
 	Mesp.val=cpu.eip+n;
 	Mesp.data_size=32;
 	operand_write(&Mesp);
-	cpu.esp-=4;
 }
 make_instr_func(call_Av)
 {
@@ -19,7 +19,6 @@ make_instr_func(call_Av)
 	operand_read(&dfun);
 //	printf("%d\n",dfun.val);
 	print_asm_0("call","",2);
-//	push_eip(eip+5,0);
 	cpu.eip+=dfun.val+data_size/8+1;
 //	printf("%x\n",cpu.eip);
 	return 0;
