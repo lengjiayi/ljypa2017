@@ -7,6 +7,7 @@ static uint32_t POP(int dsize)
 	ESP.addr=REG_ESP;
 	ESP.data_size=dsize;
 	operand_read(&ESP);
+	cpu.esp+=1;
 	return ESP.val;
 }
 make_instr_func(leave)
