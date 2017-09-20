@@ -19,5 +19,6 @@ make_instr_func(leave)
 
 make_instr_func(pop_mv)
 {
+	printf("%x\n",eip+1);
 	return 1;
 }
