@@ -21,7 +21,7 @@ make_instr_func(add_i2v)
 	return len;
 }
 
-make_instr_fun(add_ib2al)
+make_instr_func(add_ib2al)
 {
 	IMM(8)
 	imm.addr=eip+1;
@@ -29,7 +29,7 @@ make_instr_fun(add_ib2al)
 	cpu.al=alu_add(cpu.al,imm.val);
 	return 2;
 }
-make_instr_fun(add_iv2eax)
+make_instr_func(add_iv2eax)
 {
 	IMM(data_size)
 	imm.addr=eip+1;
