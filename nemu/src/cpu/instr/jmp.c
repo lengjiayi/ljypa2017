@@ -43,5 +43,6 @@ make_instr_func(jg)
 	imm.data_size=8;
 	operand_read(&imm);
 	printf("%d\n",imm.val);
-	return 1;
+	cpu.eip+=imm.val+2;
+	return 0;
 }
