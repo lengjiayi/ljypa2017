@@ -11,6 +11,6 @@ make_instr_func(add_i2v)
 	imm.addr=len+eip;
 	operand_read(&imm);
 	operand_read(&rm);
-	printf("%d,%d\n",rm,imm);
+	printf("%d,%d\n",rm.val,imm.val);
 	return len+data_size/8;
 }
