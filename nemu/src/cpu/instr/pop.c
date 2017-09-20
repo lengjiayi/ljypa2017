@@ -9,7 +9,7 @@ static uint32_t POP(int dsize)
 	operand_read(&ESP);
 	cpu.esp+=1;
 	operand_read(&ESP);
-	printf("%x\n"ESP.val);
+	printf("%x\n",ESP.val);
 	return ESP.val;
 }
 make_instr_func(leave)
