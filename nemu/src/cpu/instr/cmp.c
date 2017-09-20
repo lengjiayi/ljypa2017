@@ -23,6 +23,6 @@ make_instr_func(cmp_rv2rv)
 	operand_read(&r);
 	operand_read(&rm);
 	alu_sub(r.val,rm.val);
-	printf("r:%d,rm:%d",r.val,rm.val);
+	printf("r:%d,%d,rm:%d,%d",r.addr,r.val,rm.addr,rm.val);
 	return len;
 }
