@@ -66,7 +66,7 @@ make_instr_func(lea)
 	OPERAND r,rm;
 	r.data_size=rm.data_size=data_size;
 	len+=modrm_r_rm(eip+1,&r,&rm);
-	printf("%d,%d\n",r.type,rm.type);
+	printf("%d,%d\n",r.addr,rm.addr);
 	rm.val=r.val;
 	operand_write(&rm);
 	operand_read(&r);
