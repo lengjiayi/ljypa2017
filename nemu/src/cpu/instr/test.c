@@ -9,6 +9,6 @@ make_instr_func(test_r2rm_v)
 	operand_read(&r);
 	operand_read(&rm);
 	alu_sub(r.val,rm.val);
-	printf("%d\n%d,%d,%d\n%d\n",len,cpu.eax,r.val,rm.val,cpu.eip+len);
+	printf("%d\n%d,%d,%d\n%x\n",len,cpu.eax,r.val,rm.val,cpu.eip+len);
 	return len+1;
 }
