@@ -1,12 +1,12 @@
 #include"cpu/instr.h"
 #define IMM(dsize)\
-	int len=1;\
 	OPERAND imm;\
 	imm.data_size=dsize;\
 	imm.type=OPR_IMM;\
 	
 make_instr_func(add_i2v)
 {
+	int len=1;
 	IMM
 	OPERAND rm;
 	len+=modrm_rm(eip+1,&rm);
