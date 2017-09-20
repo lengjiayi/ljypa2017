@@ -22,7 +22,7 @@ make_instr_func(add_i2v)
 //	operand_read(&imm);
 	operand_read(&rm);
 //	printf("%x,%x,%x\n",rm.val,imm.val,cpu.edx);
-	rm.val+=readimm(data_size,len+eip);
+	rm.val+=readimm(len+eip,data_size);
 	operand_write(&rm);
 	len+=data_size/8;
 //	printf("%d\n",len);
