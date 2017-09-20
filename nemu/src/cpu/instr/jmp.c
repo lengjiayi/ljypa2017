@@ -55,14 +55,14 @@ make_instr_func(je)
 
 int jump(int eip,int dsize)
 {
-	printf("eip_pre:%x\n",eip);
+//	printf("eip_pre:%x\n",eip);
 	OPERAND imm;
 	imm.type=OPR_IMM;
 	imm.addr=eip+1;
 	imm.data_size=dsize;
 	operand_read(&imm);
 	imm.val=sign_ext(imm.val,dsize);
-	printf("eip_post:%x\n",imm.val+2+eip);
+//	printf("eip_post:%x\n",imm.val+2+eip);
 	cpu.eip+=imm.val+2;
 	return 0;
 }
