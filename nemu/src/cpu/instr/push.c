@@ -11,7 +11,8 @@ int push_reg(uint32_t reg,unsigned len)
 	ESP.addr=cpu.esp;
 	ESP.data_size=32;
 	operand_write(&ESP);
-//	cpu.esp-=4;
+	cpu.esp-=4;
+	printf("esp:%x\n",cpu.esp);
 	return len;
 }
 push_exx(eax)
