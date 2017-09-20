@@ -53,7 +53,7 @@ make_instr_func(je)
 }
 */
 
-jump(int dsize)
+jump(int eip,int dsize)
 {
 	OPERAND imm;
 	imm.type=OPR_IMM;
@@ -68,11 +68,11 @@ make_instr_func(jg)
 {
 	if(!(cpu.eflags.ZF==0 && cpu.eflags.SF==cpu.eflags.OF))
 		return 2;
-	return jump(8);
+	return jump(eip,8);
 }
 make_instr_func(jbe)
 {
 	if(!(cpu.eflags.ZF || cpu.eflags.CF))
 		return 2;
-	return jump(8);
+	return jump(eip,8);
 }
