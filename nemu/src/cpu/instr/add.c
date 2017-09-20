@@ -58,3 +58,16 @@ make_instr_func(add_rv2rv)
 //	printf("addr:%d,%x\n",rm.addr,eip+len);
 	return len;
 }
+
+//lea
+make_instr_func(lea)
+{
+	int len=1;
+	OPERAND r,rm;
+	r.data_size=rm.data_size=data_size;
+	len+=modrm_r_rm(eip+1,&r,&rm);
+	rm.val=r.addr;
+	operand_write(&rm);
+	printf("%d,%d,%x\n",r.addr,cpu.eax,eip+len);
+	return len;
+}

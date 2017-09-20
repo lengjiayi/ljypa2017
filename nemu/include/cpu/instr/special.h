@@ -16,4 +16,5 @@ make_instr_func(call_Av);
 make_instr_func(ret_near);
 make_instr_func(test_r2rm_v);
 make_instr_func(leave);		//at pop.c
+make_instr_func(lea);		//at add.c
 #endif
