@@ -64,7 +64,7 @@ int jump(int eip,int dsize)
 	cpu.eip+=imm.val+2;
 	return 0;
 }
-make_instr_func(jg)
+make_instr_func(je)
 {
 	if(!(cpu.eflags.ZF==0 && cpu.eflags.SF==cpu.eflags.OF))
 		return 2;
