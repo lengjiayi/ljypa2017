@@ -44,7 +44,7 @@ make_instr_func(add_iv2eax)
 {
 	cpu.eax=alu_add(cpu.eax,readimm(eip+1,data_size));
 	print_asm_0("addeax","",10);
-	print("eax:%d\n",cpu.eax);
+	printf("eax:%d\n",cpu.eax);
 	return data_size/8+1;
 }
 make_instr_func(add_rv2rv)
