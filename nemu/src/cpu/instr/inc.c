@@ -17,8 +17,8 @@ make_instr_func(inc_ev)
 	int len=1;
 	OPERAND rm;
 	rm.data_size=16;
-	len+=modrm_opcode_rm(eip+1,0,&rm);
-//	operand_read(&rm);
-//	printf("%d,%d\n",cpu.eax,rm.addr);
+	len+=modrm_rm(eip+1,&rm);
+	operand_read(&rm);
+	printf("%d,%d\n",cpu.eax,rm.addr);
 	return 3;
 }
