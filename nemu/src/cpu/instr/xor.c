@@ -9,6 +9,7 @@ int xor_r2r(int eip,int dsize)
 	operand_read(&r);
 	operand_read(&rm);
 	rm.val=alu_xor(r.val,rm.val);
+	operand_write(&rm)
 	print_asm_2("xor",(dsize==8)?"b":"v",10,&r,&rm);
 //	printf("next:%x\n",eip+len);
 	return len;
