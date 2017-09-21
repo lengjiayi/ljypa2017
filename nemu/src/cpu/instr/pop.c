@@ -1,6 +1,6 @@
 #include "cpu/instr.h"
 #define popexx(exx)\
-make_instr_func(concat(push_,exx))\
+make_instr_func(concat(pop_,exx))\
 {\
 	cpu.exx=POP(32);\
 	cpu.esp+=4;\
