@@ -26,6 +26,25 @@ push_exx(ebp)
 push_exx(esi)
 push_exx(edi)
 push_exx(eip)
+
+make_instr_func(push_v)
+{
+	cpu.esp-=4;
+	OPERAND ESP,imm;
+	imm.type=OPR_IMM;
+	imm.data_size=data_size;
+	imm.addr=eip+1;
+	operand_read(&imm);
+	ESP.val=imm.val;
+	ESP.addr=cpu.esp;
+	ESP.data_size=data_size;
+	ESP.type=OPR_MEM;
+	operand_write(&ESP);
+	print_asm_1("push","v",10,&imm);
+//	printf("push %d at :0x%x\n",ESP.val,cpu.esp);
+	return len;
+
+}
 /*
 make_instr_func(push_eax)
 {

@@ -10,5 +10,6 @@ make_instr_func(push_ebp);
 make_instr_func(push_esi);
 make_instr_func(push_edi);
 make_instr_func(push_eip);
+make_instr_func(push_v);
 
 #endif
