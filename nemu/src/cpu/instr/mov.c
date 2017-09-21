@@ -84,7 +84,8 @@ make_instr_func(mov_rm2r_v) {
 	//operand_read(&rm);
 	//r.val = rm.val;
 	//operand_write(&r);
-	execute(&rm, &r);
+	r.val=rm.val;
+	operand_write(&r);
 	return len;
 }
 /*
