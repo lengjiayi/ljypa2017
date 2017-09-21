@@ -94,7 +94,7 @@ make_instr_func(jbe_0f)
 	print_asm_0("jbe","",10);
 	if(!(cpu.eflags.ZF || cpu.eflags.CF))
 		return data_size/8+1;
-	return jump(eip,data_size);
+	return jump(eip,data_size)+data_size-1;
 }
 
 make_instr_func(jle)
