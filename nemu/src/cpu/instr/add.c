@@ -61,7 +61,7 @@ make_instr_func(add_rv2rv)
 	rm.val=alu_add(sign_ext(r.val,data_size),sign_ext(rm.val,data_size));
 	operand_write(&rm);
 	print_asm_2("add","v",10,&r,&rm);
-	printf("addr:%d,%d\n",r.val,rm.val);
+//	printf("addr:%d,%d\n",r.val,rm.val);
 	return len;
 }
 
