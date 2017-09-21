@@ -29,20 +29,20 @@ push_exx(eip)
 
 make_instr_func(push_v)
 {
+	int len=1;
 	cpu.esp-=4;
-	OPERAND ESP,imm;
-	imm.type=OPR_IMM;
-	imm.data_size=data_size;
-	imm.addr=eip+1;
-	operand_read(&imm);
-	ESP.val=imm.val;
+	OPERAND ESP,rm;
+	rm.data_size=data_size;
+	len+=modrm_rm(eip+1,&rm);
+	operand_read(&rm);
+	ESP.val=rm.val;
 	ESP.addr=cpu.esp;
 	ESP.data_size=data_size;
 	ESP.type=OPR_MEM;
 	operand_write(&ESP);
-	print_asm_1("push","v",10,&imm);
-	printf("push %d at :0x%x\n",ESP.val,cpu.esp);
-	return data_size/8+1;
+	print_asm_1("push","v",10,&rm);
+//	printf("push %d at :0x%x\n",ESP.val,cpu.esp);
+	return len;
 }
 /*
 make_instr_func(push_eax)
