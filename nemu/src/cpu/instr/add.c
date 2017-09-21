@@ -53,7 +53,7 @@ make_instr_func(add_rv2rv)
 	int len=1;
 	OPERAND r,rm;
 	r.data_size=rm.data_size=data_size;
-	len+=modrm_r_rm(eip,&r,&rm);
+	len+=modrm_r_rm(eip+1,&r,&rm);
 	operand_read(&r);
 	printf("In add rv\n");
 	operand_read(&rm);
