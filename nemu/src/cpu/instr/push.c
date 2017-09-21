@@ -11,6 +11,7 @@ int push_reg(uint32_t reg,unsigned len)
 	ESP.val=reg;
 	ESP.addr=cpu.esp;
 	ESP.data_size=32;
+	ESP.type=OPR_MEM;
 	operand_write(&ESP);
 	print_asm_0("pushl ","exx",2);
 	printf("push %d at :0x%x\n",ESP.val,cpu.esp);
