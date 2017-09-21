@@ -4,7 +4,7 @@ make_instr_func(concat(pop_,exx))\
 {\
 	cpu.exx=POP(32);\
 	cpu.esp+=4;\
-	print_asm_0("push exx","",1);\
+	print_asm_0("pop exx","",1);\
 	return 1;}
 static uint32_t POP(int dsize)
 {
