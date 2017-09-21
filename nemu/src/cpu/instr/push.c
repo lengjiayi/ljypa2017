@@ -14,7 +14,7 @@ int push_reg(uint32_t reg,unsigned len)
 	ESP.type=OPR_MEM;
 	operand_write(&ESP);
 	print_asm_0("pushl ","exx",2);
-	printf("push %d at :0x%x\n",ESP.val,cpu.esp);
+//	printf("push %d at :0x%x\n",ESP.val,cpu.esp);
 	return len;
 }
 push_exx(eax)
