@@ -2,7 +2,7 @@
 #define popexx(exx)\
 make_instr_func(concat(push_,exx))\
 {\
-	concat(cpu.,exx)=POP(32);\
+	cpu.exx=POP(32);\
 	cpu.esp+=4;\
 	print_asm_0("push exx","",1);\
 	return 1;}
