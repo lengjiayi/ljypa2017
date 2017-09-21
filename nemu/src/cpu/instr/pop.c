@@ -30,10 +30,23 @@ make_instr_func(pop_mv)
 {
 	return 1;
 }
+make_instr_func(pop_ebx)
+{
+	OPERAND ESP;
+	ESP.type=OPR_MEM;
+	ESP.addr=cpu.esp;
+	ESP.data_size=data_size;
+	operand_read(&ESP);
+	printf("pop:%x\n",ESP.val);
+	cpu.ebx=ESP.val;
+	return 1;
+}
+
+		
 popexx(eax)
 popexx(ecx)
 popexx(edx)
-popexx(ebx)
+//popexx(ebx)
 popexx(esp)
 popexx(ebp)
 popexx(esi)
