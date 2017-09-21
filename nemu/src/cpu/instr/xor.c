@@ -10,7 +10,7 @@ int xor_r2r(int eip,int dsize)
 	operand_read(&rm);
 	rm.val=alu_xor(r.val,rm.val);
 	print_asm_2("xor",(dsize==8)?"b":"v",10,&r,&rm);
-	printf("next:%x\n",eip+len);
+//	printf("next:%x\n",eip+len);
 	return len;
 }
 make_instr_func(xor_r2r_b)
