@@ -25,7 +25,7 @@ make_instr_func(and_si2r_v)
 	imm.data_size=8;
 	imm.addr=eip+len;
 	operand_read(&imm);
-	operand_read(&rm)
+	operand_read(&rm);
 	imm.val=sign_ext(imm.val,8);
 	rm.val=alu_and(rm.val,imm.val);
 	printf("***");
