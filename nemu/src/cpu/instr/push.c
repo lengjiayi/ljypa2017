@@ -35,6 +35,7 @@ make_instr_func(push_v)
 	rm.data_size=data_size;
 	len+=modrm_rm(eip+1,&rm);
 	operand_read(&rm);
+	printf("***");
 	ESP.val=rm.val;
 	ESP.addr=cpu.esp;
 	ESP.data_size=data_size;
