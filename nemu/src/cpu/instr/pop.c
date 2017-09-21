@@ -9,8 +9,8 @@ make_instr_func(concat(pop_,exx))\
 static uint32_t POP(int dsize)
 {
 	OPERAND ESP;
-	ESP.type=OPR_REG;
-	ESP.addr=REG_ESP;
+	ESP.type=OPR_MEM;
+	ESP.addr=cpu.esp;
 	ESP.data_size=dsize;
 	operand_read(&ESP);
 	printf("pop:%x\n",ESP.val);
@@ -30,6 +30,7 @@ make_instr_func(pop_mv)
 {
 	return 1;
 }
+/*
 make_instr_func(pop_ebx)
 {
 	OPERAND ESP;
@@ -41,12 +42,12 @@ make_instr_func(pop_ebx)
 	cpu.ebx=ESP.val;
 	return 1;
 }
-
+*/
 		
 popexx(eax)
 popexx(ecx)
 popexx(edx)
-//popexx(ebx)
+popexx(ebx)
 popexx(esp)
 popexx(ebp)
 popexx(esi)
