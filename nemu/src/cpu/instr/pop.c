@@ -13,7 +13,7 @@ static uint32_t POP(int dsize)
 	ESP.addr=cpu.esp;
 	ESP.data_size=dsize;
 	operand_read(&ESP);
-	printf("pop:%x\n",ESP.val);
+//	printf("pop:%x\n",ESP.val);
 	return ESP.val;
 }
 make_instr_func(leave)
