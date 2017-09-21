@@ -12,7 +12,6 @@ make_instr_func(and_r2r_b)
 //	printf("%x\n",rm.val);
 	operand_write(&rm);
 	print_asm_2("and","v",10,&r,&rm);
-	printf("next:%x\n",eip+len);
 	return len;	
 }
 make_instr_func(and_si2r_v)
@@ -30,5 +29,6 @@ make_instr_func(and_si2r_v)
 	rm.val=alu_and(rm.val,imm.val);
 	operand_write(&rm);
 	print_asm_2("and","v",10,&rm,&imm);
+	printf("next:%x\n",eip+len+1);
 	return len+1;
 }
