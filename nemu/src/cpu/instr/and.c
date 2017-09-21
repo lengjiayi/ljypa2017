@@ -1,11 +1,4 @@
 #include "cpu/instr.h"
-#define readimm(iaddr,dsize)\
-	OPERAND imm;\
-	imm.type=OPR_IMM;\
-	imm.data_size=dsize;\
-	imm.addr=iaddr;\
-	operand_read(&imm);\
-	imm.val=sign_ext(imm.val,dsize);
 make_instr_func(and_r2r_b)
 {
 	int len=1;
@@ -27,7 +20,12 @@ make_instr_func(and_si2r_v)
 	OPERAND rm;
 	rm.data_size=data_size;
 	len+=modrm_rm(eip+1,&rm);
-	readimm(eip+len,8)
+	OPERAND imm;
+	imm.type=OPR_IMM;
+	imm.data_size=8;
+	imm.addr=eip+len;
+	operand_read(&imm);
+	imm.val=sign_ext(imm.val,dsize);
 	rm.val=alu_and(rm.val,imm.val);
 	operand_write(&rm);
 	print_asm_2("and","v",10,&rm,&imm);
