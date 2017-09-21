@@ -67,7 +67,7 @@ int jump(int eip,int dsize)
 }
 make_instr_func(je)
 {
-	printf("je:eax:%d,ecx:%d\n",cpu.eax,cpu.ecx);
+//	printf("je:eax:%d,ecx:%d\n",cpu.eax,cpu.ecx);
 	print_asm_0("je","",10);
 	if(cpu.eflags.ZF==0)
 	{ 
