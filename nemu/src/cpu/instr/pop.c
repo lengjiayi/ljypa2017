@@ -1,5 +1,11 @@
 #include "cpu/instr.h"
-
+#define popexx(exx)\
+make_instr_func(concat(push_,exx))\
+{\
+	concat(cpu.,exx)=POP(32);\
+	cpu.esp+=4;\
+	print_asm_0("push exx","",1);\
+	return 1;}
 static uint32_t POP(int dsize)
 {
 	OPERAND ESP;
@@ -24,3 +30,12 @@ make_instr_func(pop_mv)
 {
 	return 1;
 }
+popexx(eax)
+popexx(ecx)
+popexx(edx)
+popexx(ebx)
+popexx(esp)
+popexx(ebp)
+popexx(esi)
+popexx(edi)
+
