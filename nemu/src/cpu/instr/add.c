@@ -55,7 +55,9 @@ make_instr_func(add_rv2rv)
 	r.data_size=rm.data_size=data_size;
 	len+=modrm_r_rm(eip,&r,&rm);
 	operand_read(&r);
+	printf("In add rv\n");
 	operand_read(&rm);
+	printf("In add rv\n");
 	rm.val=alu_add(sign_ext(r.val,data_size),sign_ext(rm.val,data_size));
 	operand_write(&rm);
 	print_asm_2("add","v",10,&r,&rm);
