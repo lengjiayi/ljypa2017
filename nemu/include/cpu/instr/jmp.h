@@ -8,4 +8,5 @@ make_instr_func(jbe);
 make_instr_func(jg);
 make_instr_func(jle);
 make_instr_func(jne);
+make_instr_func(jbe_0f);
 #endif
