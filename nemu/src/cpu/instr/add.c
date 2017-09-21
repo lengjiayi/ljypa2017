@@ -49,6 +49,7 @@ make_instr_func(add_iv2eax)
 }
 make_instr_func(add_rv2rv)
 {
+	printf("In add rv\n");
 	int len=1;
 	OPERAND r,rm;
 	r.data_size=rm.data_size=data_size;
