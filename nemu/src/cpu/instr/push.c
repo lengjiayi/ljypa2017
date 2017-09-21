@@ -40,7 +40,7 @@ make_instr_func(push_v)
 	ESP.data_size=data_size;
 	ESP.type=OPR_MEM;
 	operand_write(&ESP);
-	print_asm_1("push","v",10,&rm);
+//	print_asm_1("push","v",10,&rm);
 	printf("push %d at :0x%x\n",ESP.val,cpu.esp);
 	return len;
 }
