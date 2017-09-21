@@ -42,8 +42,7 @@ make_instr_func(push_v)
 	operand_write(&ESP);
 	print_asm_1("push","v",10,&imm);
 //	printf("push %d at :0x%x\n",ESP.val,cpu.esp);
-	return len;
-
+	return data_size/8+1;
 }
 /*
 make_instr_func(push_eax)
