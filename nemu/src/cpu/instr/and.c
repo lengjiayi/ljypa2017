@@ -16,6 +16,7 @@ make_instr_func(and_r2r_b)
 }
 make_instr_func(and_si2r_v)
 {
+	return 1;
 	int len=1;
 	OPERAND rm;
 	rm.data_size=data_size;
