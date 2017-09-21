@@ -28,7 +28,7 @@ make_instr_func(and_si2r_v)
 	operand_read(&rm);
 	imm.val=sign_ext(imm.val,8);
 	rm.val=alu_and(rm.val,imm.val);
-	printf("***");
+//	printf("***");
 	operand_write(&rm);
 	print_asm_2("and","v",10,&rm,&imm);
 //	printf("next:%x\n",eip+len+1);
