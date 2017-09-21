@@ -8,6 +8,7 @@ void pre_call(int n)
 	Mesp.val=cpu.eip+n;
 	Mesp.data_size=32;
 	operand_write(&Mesp);
+	printf("push 0x%x at 0x%x\n",Mesp.val,Mesp.addr);
 }
 make_instr_func(call_Av)
 {
