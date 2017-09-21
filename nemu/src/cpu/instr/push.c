@@ -6,14 +6,14 @@ make_instr_func(concat(push_,exx_name))\
 
 int push_reg(uint32_t reg,unsigned len)
 {	
+	cpu.esp-=4;
 	OPERAND ESP;
 	ESP.val=reg;
 	ESP.addr=cpu.esp;
 	ESP.data_size=32;
 	operand_write(&ESP);
-	print_asm_0("pushl ","exx",2);	
-	cpu.esp-=4;
-//	printf("esp:%x\n",cpu.esp);
+	print_asm_0("pushl ","exx",2);
+	printf("push %d at :0x%x\n",ESP.val,cpu.esp);
 	return len;
 }
 push_exx(eax)

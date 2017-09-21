@@ -9,7 +9,7 @@ static void instr_execute_2op() {
 make_instr_impl_2op(mov, r, rm, b)
 make_instr_impl_2op(mov, r, rm, v)
 make_instr_impl_2op(mov, rm, r, b)
-//make_instr_impl_2op(mov, rm, r, v)
+make_instr_impl_2op(mov, rm, r, v)
 make_instr_impl_2op(mov, i, rm, b)
 make_instr_impl_2op(mov, i, rm, v)
 make_instr_impl_2op(mov, i, r, b)
@@ -71,7 +71,7 @@ make_instr_func(mov_rm2r_b) {
 	execute(&rm, &r);
 	return len;
 }
-*/
+
 make_instr_func(mov_rm2r_v) {
 	OPERAND r, rm;
 	r.data_size = data_size;
@@ -91,7 +91,7 @@ make_instr_func(mov_rm2r_v) {
 	print_asm_2("mov","v",10,&r,&rm);
 	return len;
 }
-/*
+
 make_instr_func(mov_i2rm_b) {
 	OPERAND rm, imm;
 	rm.data_size = 8;
