@@ -88,7 +88,7 @@ make_instr_func(mov_rm2r_v) {
 	r.val=rm.val;
 	printf("movval:%d\n",r.val);
 	operand_write(&r);
-	print_asm_2("mov","v",10,&r,&rm);
+	print_asm_2("mov","x",10,&r,&rm);
 	return len;
 }
 /*
