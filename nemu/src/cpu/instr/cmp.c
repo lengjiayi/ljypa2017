@@ -23,7 +23,7 @@ int cmp_r2r(int eip,int dsize)
 	operand_read(&r);
 	operand_read(&rm);
 	alu_sub(r.val,rm.val);
-//	printf("r:%d,%d,rm:%d,%d",r.addr,r.val,rm.addr,rm.val);
+	printf("cmp:r:%d,rm:%d",r.val,rm.val);
 	return len;
 }
 make_instr_func(cmp_rv2rv)
