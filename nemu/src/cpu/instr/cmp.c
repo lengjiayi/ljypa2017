@@ -14,7 +14,7 @@ make_instr_func(cmp_i2r_v)
 //	printf("%x\n",len+eip);
     return len+1;
 }
-int cmp_r2r(int eip,int dsize)
+int cmp_r2r(int eip,int dsize,bool reverse)
 {
 	int len=1;
 	OPERAND	r,rm;
@@ -22,18 +22,32 @@ int cmp_r2r(int eip,int dsize)
 	len+=modrm_r_rm(eip+1,&r,&rm);
 	operand_read(&r);
 	operand_read(&rm);
-	alu_sub(r.val,rm.val);
+	if(reverse)
+		alu_sub(rm.val,r.val)
+	else
+		alu_sub(r.val,rm.val);
 	printf("cmp:r:%d,rm:%d\n",r.val,rm.val);
-	print_asm_2("cmp",(dsize==8)?"b":"v",10,&r,&rm);
+	if(reverse)
+		print_asm_2("cmp",(dsize==8)?"b":"v",10,&r,&rm);
+	else
+		print_asm_2("cmp",(dsize==8)?"b":"v",10,&r,&rm);
 	return len;
 }
 make_instr_func(cmp_rv2rv)
 {
-	return cmp_r2r(eip,data_size);
+	return cmp_r2r(eip,data_size,0);
 }
 make_instr_func(cmp_rb2rb)
 {
-	return cmp_r2r(eip,8);
+	return cmp_r2r(eip,8,0);
+}
+make_instr_func(cmp_rv2rv_r)
+{
+	return cmp_r2r(eip,data_size,1);
+}
+make_instr_func(cmp_rb2rb_r)
+{
+	return cmp_r2r(eip,8,1);
 }
 make_instr_func(cmp_i2v_l)
 {
