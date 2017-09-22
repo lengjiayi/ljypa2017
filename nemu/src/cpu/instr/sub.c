@@ -19,7 +19,7 @@ make_instr_func(sub_i2rm_v)
 //	printf("subpo:%x\n",rm.val);
 	return len+1;
 }
-int sub_r2r(int eip,int dsize)
+int sub_r2r(int eip,int dsize,bool reverse)
 {
 	int len=1;
 	OPERAND r,rm;
@@ -27,16 +27,33 @@ int sub_r2r(int eip,int dsize)
 	len+=modrm_r_rm(eip+1,&r,&rm);
 	operand_read(&r);
 	operand_read(&rm);
-	rm.val=alu_sub(r.val,rm.val);
-	operand_write(&rm);
-	print_asm_2("sub",(data_size==8)?"b":"v",10,&r,&rm);
+	if(reverse)
+	{
+		r.val=alu_sub(rm.val,r.val);
+		operand_write(&r);
+		print_asm_2("sub",(data_size==8)?"b":"v",10,&rm,&r);
+	}
+	else
+	{
+		rm.val=alu_sub(r.val,rm.val);
+		operand_write(&rm);
+		print_asm_2("sub",(data_size==8)?"b":"v",10,&r,&rm);
+	}
 	return len;
 }
 make_instr_func(sub_r2r_b)
 {
-	return sub_r2r(eip,8);
+	return sub_r2r(eip,8,0);
 }
 make_instr_func(sub_r2r_v)
 {
-	return sub_r2r(eip,data_size);
+	return sub_r2r(eip,data_size,0);
+}
+make_instr_func(sub_r2r_b_r)
+{
+	return sub_r2r(eip,8,1);
+}
+make_instr_func(sub_r2r_v_r)
+{
+	return sub_r2r(eip,data_size,1);
 }
