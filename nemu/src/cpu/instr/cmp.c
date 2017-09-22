@@ -34,4 +34,18 @@ make_instr_func(cmp_rb2rb)
 {
 	return cmp_r2r(eip,8);
 }
-make_instr_func(cmp_
+make_instr_func(cmp_i2v_l)
+{
+	int len=1;
+	OPERAND	rm,imm;
+	rm.data_size=imm.data_size=32;
+	len+=modrm_rm(eip+1,&rm);
+	imm.addr=eip+len;
+	imm.type=OPR_IMM;
+	operand_read(&imm);
+	operand_read(&rm);
+	alu_sub(imm.val,rm.val);
+//	printf("r:%d,%d,rm:%d,%d",r.addr,r.val,rm.addr,rm.val);
+	return len+4;
+
+}
