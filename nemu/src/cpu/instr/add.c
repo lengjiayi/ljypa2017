@@ -47,22 +47,47 @@ make_instr_func(add_iv2eax)
 //	printf("eax:%d\n",cpu.eax);
 	return data_size/8+1;
 }
-make_instr_func(add_rv2rv)
+int add_r2r(int eip,int dsize,bool reverse)
 {
 //	printf("In add rv\n");
 	int len=1;
 	OPERAND r,rm;
-	r.data_size=rm.data_size=data_size;
+	r.data_size=rm.data_size=dsize;
 	len+=modrm_r_rm(eip+1,&r,&rm);
 	operand_read(&r);
 //	printf("In add rv\n");
 	operand_read(&rm);
 //	printf("In add rv\n");
-	rm.val=alu_add(sign_ext(r.val,data_size),sign_ext(rm.val,data_size));
-	operand_write(&rm);
-	print_asm_2("add","v",10,&r,&rm);
+	if(reverse)
+	{
+		r.val=alu_add(sign_ext(r.val,data_size),sign_ext(rm.val,data_size));
+		operand_write(&r);
+		print_asm_2("add","v",10,&rm,&r);
+	}
+	else
+	{
+		rm.val=alu_add(sign_ext(r.val,data_size),sign_ext(rm.val,data_size));
+		operand_write(&rm);
+		print_asm_2("add","v",10,&r,&rm);
+	}
 //	printf("addr:%d,%d\n",r.val,rm.val);
 	return len;
+}
+make_instr_func(add_rv2rv)
+{
+	return add_r2r(eip,data_size,0);
+}
+make_instr_func(add_rb2rb)
+{
+	return add_r2r(eip,8,0);
+}
+make_instr_func(add_rv2rv_r)
+{
+	return add_r2r(eip,data_size,1);
+}
+make_instr_func(add_rb2rb_r)
+{
+	return add_r2r(eip,8,1);
 }
 
 //lea
