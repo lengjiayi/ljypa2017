@@ -8,8 +8,9 @@ src/cpu/instr/xor.o: src/cpu/instr/xor.c include/cpu/instr.h \
  include/cpu/instr/jmp.h include/cpu/instr/shift.h \
  include/cpu/instr/flags.h include/cpu/instr/group.h \
  include/cpu/instr/special.h include/cpu/instr/x87.h \
- include/cpu/instr/push.h include/cpu/instr/add.h include/cpu/instr/pop.h \
- include/cpu/instr/inc.h include/cpu/instr/and.h include/cpu/instr/adc.h \
+ include/cpu/instr/cmp.h include/cpu/instr/push.h include/cpu/instr/add.h \
+ include/cpu/instr/pop.h include/cpu/instr/inc.h include/cpu/instr/dec.h \
+ include/cpu/instr/and.h include/cpu/instr/adc.h include/cpu/instr/sub.h \
  include/cpu/instr/xor.h include/cpu/instr/or.h
 
 include/cpu/instr.h:
@@ -58,6 +59,8 @@ include/cpu/instr/special.h:
 
 include/cpu/instr/x87.h:
 
+include/cpu/instr/cmp.h:
+
 include/cpu/instr/push.h:
 
 include/cpu/instr/add.h:
@@ -66,9 +69,13 @@ include/cpu/instr/pop.h:
 
 include/cpu/instr/inc.h:
 
+include/cpu/instr/dec.h:
+
 include/cpu/instr/and.h:
 
 include/cpu/instr/adc.h:
+
+include/cpu/instr/sub.h:
 
 include/cpu/instr/xor.h:
 
