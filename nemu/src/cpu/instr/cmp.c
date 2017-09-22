@@ -23,7 +23,7 @@ int cmp_r2r(int eip,int dsize,bool reverse)
 	operand_read(&r);
 	operand_read(&rm);
 	if(reverse)
-		alu_sub(rm.val,r.val)
+		alu_sub(rm.val,r.val);
 	else
 		alu_sub(r.val,rm.val);
 	printf("cmp:r:%d,rm:%d\n",r.val,rm.val);
