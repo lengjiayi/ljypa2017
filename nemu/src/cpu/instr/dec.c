@@ -1,6 +1,6 @@
 #include "cpu/instr.h"
 #define DecreaseR(exx)\
-make_instr_func(concat(inc_,exx))\
+make_instr_func(concat(dec_,exx))\
 {	cpu.exx-=1;	return 1;	}
 
 DecreaseR(eax)
