@@ -57,4 +57,4 @@ make_instr_func(group_x87_df);
 make_instr_func(cmp_i2r_v);
 make_instr_func(add_i2v);
 make_instr_func(sub_i2rm_v);
-make_instr_func(cmp_rv2rv);
+make_instr_func(cmp_i2v_l);

@@ -14,11 +14,11 @@ make_instr_func(cmp_i2r_v)
 //	printf("%x\n",len+eip);
     return len+1;
 }
-make_instr_func(cmp_rv2rv)
+int cmp_r2r(int eip,int dsize)
 {
 	int len=1;
 	OPERAND	r,rm;
-	r.data_size=rm.data_size=data_size;
+	r.data_size=rm.data_size=dsize;
 	len+=modrm_r_rm(eip+1,&r,&rm);
 	operand_read(&r);
 	operand_read(&rm);
@@ -26,3 +26,12 @@ make_instr_func(cmp_rv2rv)
 //	printf("r:%d,%d,rm:%d,%d",r.addr,r.val,rm.addr,rm.val);
 	return len;
 }
+make_instr_func(cmp_rv2rv)
+{
+	return cmp_r2r(eip,data_size);
+}
+make_instr_func(cmp_rb2rb)
+{
+	return cmp_r2r(eip,8);
+}
+make_instr_func(cmp_
