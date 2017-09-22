@@ -46,6 +46,6 @@ make_instr_func(cmp_i2v_l)
 	operand_read(&rm);
 	alu_sub(imm.val,rm.val);
 //	printf("r:%d,%d,rm:%d,%d",r.addr,r.val,rm.addr,rm.val);
+	printf("next:%x\n",eip+len+4);
 	return len+4;
-
 }
