@@ -26,7 +26,7 @@ int cmp_r2r(int eip,int dsize,bool reverse)
 		alu_sub(rm.val,r.val);
 	else
 		alu_sub(r.val,rm.val);
-	printf("cmp:r:%d,rm:%d\n",r.val,rm.val);
+//	printf("cmp:r:%d,rm:%d\n",r.val,rm.val);
 	if(reverse)
 		print_asm_2("cmp",(dsize==8)?"b":"v",10,&r,&rm);
 	else
