@@ -23,7 +23,7 @@ int cmp_r2r(int eip,int dsize)
 	operand_read(&r);
 	operand_read(&rm);
 	alu_sub(r.val,rm.val);
-	printf("cmp:r:%d,rm:%d",r.val,rm.val);
+	printf("cmp:r:%d,rm:%d\n",r.val,rm.val);
 	print_asm_2("cmp",(dsize==8)?"b":"v",10,&r,&rm);
 	return len;
 }
