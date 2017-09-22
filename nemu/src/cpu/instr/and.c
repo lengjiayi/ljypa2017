@@ -1,9 +1,9 @@
 #include "cpu/instr.h"
-make_instr_func(and_r2r_b)
+int and_r2r(int eip,int dsize)
 {
 	int len=1;
 	OPERAND r,rm;
-	r.data_size=rm.data_size=8;
+	r.data_size=rm.data_size=dsize;
 	len+=modrm_r_rm(eip+1,&r,&rm);
 	operand_read(&r);
 	operand_read(&rm);
@@ -11,8 +11,16 @@ make_instr_func(and_r2r_b)
 	rm.val=alu_and(r.val,rm.val);
 //	printf("%x\n",rm.val);
 	operand_write(&rm);
-	print_asm_2("and","v",10,&r,&rm);
+	print_asm_2("and",(dsize==8)?"b":"v",10,&r,&rm);
 	return len;	
+}
+make_instr_func(and_r2r_v)
+{
+	return and_r2r(eip,data_size);
+}
+make_instr_func(and_r2r_b)
+{
+	return and_r2r(eip,8);
 }
 make_instr_func(and_si2r_v)
 {

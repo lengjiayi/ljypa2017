@@ -19,3 +19,24 @@ make_instr_func(sub_i2rm_v)
 //	printf("subpo:%x\n",rm.val);
 	return len+1;
 }
+int sub_r2r(int eip,int dsize)
+{
+	int len=1;
+	OPERAND r,rm;
+	r.data_size=rm.data_size=dsize;
+	len+=modrm_r_rm(eip+1,&r,&rm);
+	operand_read(&r);
+	operand_read(&rm);
+	rm.val=alu_sub(r.val,rm.val);
+	operand_write(&rm);
+	print_asm_2("sub",(data_size==8)?"b":"v",10,&r,&rm);
+	return len;
+}
+make_instr_func(sub_r2r_b)
+{
+	return sub_r2r(eip,dsize);
+}
+make_instr_func(sub_r2r_v)
+{
+	return sub_r2r(eip,data_size);
+}
