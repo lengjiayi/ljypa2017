@@ -34,7 +34,7 @@ int sub_r2r(int eip,int dsize)
 }
 make_instr_func(sub_r2r_b)
 {
-	return sub_r2r(eip,dsize);
+	return sub_r2r(eip,8);
 }
 make_instr_func(sub_r2r_v)
 {
